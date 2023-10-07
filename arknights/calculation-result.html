@@ -1,1655 +1,210 @@
 <!DOCTYPE html>
-<html lang="ja" xmlns:th="http://www.tymeleaf.org">
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
     <title>必要素材計算結果</title>
-    <link rel="stylesheet" th:href="@{/css/common.css}">
-    <link rel="stylesheet" th:href="@{/css/material/calculation-result.css}">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/material/calculation-result.css">
 </head>
-
 <body>
+
 
     <div class="breadcrumb">
         <ol>
-            <li><a href="/materials">素材一覧</a></li>
-            <li>必要素材シミュレータ</li>
+            <li><a href="/materials/calculator">必要素材シミュレータ</a></li>
+            <li>計算結果</li>
         </ol>
     </div>
     
-    
-    <h2>必要な素材を選択してください</h2>
-    
-    <form action="/materials/decompose" method="post">
-        <div style="text-align: center;">
-            <input type="submit" value="必要数を計算する">
-        </div>
-    
-        <table class="material-selection-table">
-            <tbody><tr class="material-selection-row">
-                <td class="material-card">
-                    <div class="material-image">
+    <div>
+        <table class="user-select-table">
+            <tbody>
+                <tr class="material-row">
+                    <td class="selected-material">
                         <img src="/images/material/焼結核凝晶.png" alt="Material Image">
-                    </div>
-                    <span>焼結核凝晶</span>
-                    <input type="hidden" value="49" id="reqMats0.materialId" name="reqMats[0].materialId">
-                    <input type="hidden" value="焼結核凝晶" id="reqMats0.name" name="reqMats[0].name">
-                    <select id="reqMats0.quantity" name="reqMats[0].quantity">
-                        <option value="0" selected="selected">0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
-                        <option value="13">13</option>
-                        <option value="14">14</option>
-                        <option value="15">15</option>
-                        <option value="16">16</option>
-                        <option value="17">17</option>
-                        <option value="18">18</option>
-                        <option value="19">19</option>
-                        <option value="20">20</option>
-                    </select>
-                </td>
-            </tr>
-            <tr class="material-selection-row">
-                <td class="material-card">
-                    <div class="material-image">
+                        <span>× <span>1</span></span>
+                    </td>
+                </tr>
+                <tr class="material-row">
+                    <td class="selected-material">
                         <img src="/images/material/結晶制御装置.png" alt="Material Image">
-                    </div>
-                    <span>結晶制御装置</span>
-                    <input type="hidden" value="48" id="reqMats1.materialId" name="reqMats[1].materialId">
-                    <input type="hidden" value="結晶制御装置" id="reqMats1.name" name="reqMats[1].name">
-                    <select id="reqMats1.quantity" name="reqMats[1].quantity">
-                        <option value="0" selected="selected">0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
-                        <option value="13">13</option>
-                        <option value="14">14</option>
-                        <option value="15">15</option>
-                        <option value="16">16</option>
-                        <option value="17">17</option>
-                        <option value="18">18</option>
-                        <option value="19">19</option>
-                        <option value="20">20</option>
-                    </select>
-                </td>
-            </tr>
-            <tr class="material-selection-row">
-                <td class="material-card">
-                    <div class="material-image">
+                        <span>× <span>1</span></span>
+                    </td>
+                </tr>
+                <tr class="material-row">
+                    <td class="selected-material">
                         <img src="/images/material/融合剤.png" alt="Material Image">
-                    </div>
-                    <span>融合剤</span>
-                    <input type="hidden" value="47" id="reqMats2.materialId" name="reqMats[2].materialId">
-                    <input type="hidden" value="融合剤" id="reqMats2.name" name="reqMats[2].name">
-                    <select id="reqMats2.quantity" name="reqMats[2].quantity">
-                        <option value="0" selected="selected">0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
-                        <option value="13">13</option>
-                        <option value="14">14</option>
-                        <option value="15">15</option>
-                        <option value="16">16</option>
-                        <option value="17">17</option>
-                        <option value="18">18</option>
-                        <option value="19">19</option>
-                        <option value="20">20</option>
-                    </select>
-                </td>
-            </tr>
-            <tr class="material-selection-row">
-                <td class="material-card">
-                    <div class="material-image">
+                        <span>× <span>1</span></span>
+                    </td>
+                </tr>
+                <tr class="material-row">
+                    <td class="selected-material">
                         <img src="/images/material/ナノフレーク.png" alt="Material Image">
-                    </div>
-                    <span>ナノフレーク</span>
-                    <input type="hidden" value="46" id="reqMats3.materialId" name="reqMats[3].materialId">
-                    <input type="hidden" value="ナノフレーク" id="reqMats3.name" name="reqMats[3].name">
-                    <select id="reqMats3.quantity" name="reqMats[3].quantity">
-                        <option value="0" selected="selected">0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
-                        <option value="13">13</option>
-                        <option value="14">14</option>
-                        <option value="15">15</option>
-                        <option value="16">16</option>
-                        <option value="17">17</option>
-                        <option value="18">18</option>
-                        <option value="19">19</option>
-                        <option value="20">20</option>
-                    </select>
-                </td>
-            </tr>
-            <tr class="material-selection-row">
-                <td class="material-card">
-                    <div class="material-image">
+                        <span>× <span>2</span></span>
+                    </td>
+                </tr>
+                <tr class="material-row">
+                    <td class="selected-material">
                         <img src="/images/material/D32鋼.png" alt="Material Image">
-                    </div>
-                    <span>D32鋼</span>
-                    <input type="hidden" value="45" id="reqMats4.materialId" name="reqMats[4].materialId">
-                    <input type="hidden" value="D32鋼" id="reqMats4.name" name="reqMats[4].name">
-                    <select id="reqMats4.quantity" name="reqMats[4].quantity">
-                        <option value="0" selected="selected">0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
-                        <option value="13">13</option>
-                        <option value="14">14</option>
-                        <option value="15">15</option>
-                        <option value="16">16</option>
-                        <option value="17">17</option>
-                        <option value="18">18</option>
-                        <option value="19">19</option>
-                        <option value="20">20</option>
-                    </select>
-                </td>
-            </tr>
-            <tr class="material-selection-row">
-                <td class="material-card">
-                    <div class="material-image">
-                        <img src="/images/material/上級アケトン.png" alt="Material Image">
-                    </div>
-                    <span>上級アケトン</span>
-                    <input type="hidden" value="44" id="reqMats5.materialId" name="reqMats[5].materialId">
-                    <input type="hidden" value="上級アケトン" id="reqMats5.name" name="reqMats[5].name">
-                    <select id="reqMats5.quantity" name="reqMats[5].quantity">
-                        <option value="0" selected="selected">0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
-                        <option value="13">13</option>
-                        <option value="14">14</option>
-                        <option value="15">15</option>
-                        <option value="16">16</option>
-                        <option value="17">17</option>
-                        <option value="18">18</option>
-                        <option value="19">19</option>
-                        <option value="20">20</option>
-                    </select>
-                </td>
-            </tr>
-            <tr class="material-selection-row">
-                <td class="material-card">
-                    <div class="material-image">
-                        <img src="/images/material/上級異鉄.png" alt="Material Image">
-                    </div>
-                    <span>上級異鉄</span>
-                    <input type="hidden" value="43" id="reqMats6.materialId" name="reqMats[6].materialId">
-                    <input type="hidden" value="上級異鉄" id="reqMats6.name" name="reqMats[6].name">
-                    <select id="reqMats6.quantity" name="reqMats[6].quantity">
-                        <option value="0" selected="selected">0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
-                        <option value="13">13</option>
-                        <option value="14">14</option>
-                        <option value="15">15</option>
-                        <option value="16">16</option>
-                        <option value="17">17</option>
-                        <option value="18">18</option>
-                        <option value="19">19</option>
-                        <option value="20">20</option>
-                    </select>
-                </td>
-            </tr>
-            <tr class="material-selection-row">
-                <td class="material-card">
-                    <div class="material-image">
-                        <img src="/images/material/上級糖原.png" alt="Material Image">
-                    </div>
-                    <span>上級糖原</span>
-                    <input type="hidden" value="42" id="reqMats7.materialId" name="reqMats[7].materialId">
-                    <input type="hidden" value="上級糖原" id="reqMats7.name" name="reqMats[7].name">
-                    <select id="reqMats7.quantity" name="reqMats[7].quantity">
-                        <option value="0" selected="selected">0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
-                        <option value="13">13</option>
-                        <option value="14">14</option>
-                        <option value="15">15</option>
-                        <option value="16">16</option>
-                        <option value="17">17</option>
-                        <option value="18">18</option>
-                        <option value="19">19</option>
-                        <option value="20">20</option>
-                    </select>
-                </td>
-            </tr>
-            <tr class="material-selection-row">
-                <td class="material-card">
-                    <div class="material-image">
-                        <img src="/images/material/上級エステル.png" alt="Material Image">
-                    </div>
-                    <span>上級エステル</span>
-                    <input type="hidden" value="41" id="reqMats8.materialId" name="reqMats[8].materialId">
-                    <input type="hidden" value="上級エステル" id="reqMats8.name" name="reqMats[8].name">
-                    <select id="reqMats8.quantity" name="reqMats[8].quantity">
-                        <option value="0" selected="selected">0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
-                        <option value="13">13</option>
-                        <option value="14">14</option>
-                        <option value="15">15</option>
-                        <option value="16">16</option>
-                        <option value="17">17</option>
-                        <option value="18">18</option>
-                        <option value="19">19</option>
-                        <option value="20">20</option>
-                    </select>
-                </td>
-            </tr>
-            <tr class="material-selection-row">
-                <td class="material-card">
-                    <div class="material-image">
-                        <img src="/images/material/上級装置.png" alt="Material Image">
-                    </div>
-                    <span>上級装置</span>
-                    <input type="hidden" value="40" id="reqMats9.materialId" name="reqMats[9].materialId">
-                    <input type="hidden" value="上級装置" id="reqMats9.name" name="reqMats[9].name">
-                    <select id="reqMats9.quantity" name="reqMats[9].quantity">
-                        <option value="0" selected="selected">0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
-                        <option value="13">13</option>
-                        <option value="14">14</option>
-                        <option value="15">15</option>
-                        <option value="16">16</option>
-                        <option value="17">17</option>
-                        <option value="18">18</option>
-                        <option value="19">19</option>
-                        <option value="20">20</option>
-                    </select>
-                </td>
-            </tr>
-            <tr class="material-selection-row">
-                <td class="material-card">
-                    <div class="material-image">
-                        <img src="/images/material/上級源岩.png" alt="Material Image">
-                    </div>
-                    <span>上級源岩</span>
-                    <input type="hidden" value="39" id="reqMats10.materialId" name="reqMats[10].materialId">
-                    <input type="hidden" value="上級源岩" id="reqMats10.name" name="reqMats[10].name">
-                    <select id="reqMats10.quantity" name="reqMats[10].quantity">
-                        <option value="0" selected="selected">0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
-                        <option value="13">13</option>
-                        <option value="14">14</option>
-                        <option value="15">15</option>
-                        <option value="16">16</option>
-                        <option value="17">17</option>
-                        <option value="18">18</option>
-                        <option value="19">19</option>
-                        <option value="20">20</option>
-                    </select>
-                </td>
-            </tr>
-            <tr class="material-selection-row">
-                <td class="material-card">
-                    <div class="material-image">
-                        <img src="/images/material/上級転化塩.png" alt="Material Image">
-                    </div>
-                    <span>上級転化塩</span>
-                    <input type="hidden" value="38" id="reqMats11.materialId" name="reqMats[11].materialId">
-                    <input type="hidden" value="上級転化塩" id="reqMats11.name" name="reqMats[11].name">
-                    <select id="reqMats11.quantity" name="reqMats[11].quantity">
-                        <option value="0" selected="selected">0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
-                        <option value="13">13</option>
-                        <option value="14">14</option>
-                        <option value="15">15</option>
-                        <option value="16">16</option>
-                        <option value="17">17</option>
-                        <option value="18">18</option>
-                        <option value="19">19</option>
-                        <option value="20">20</option>
-                    </select>
-                </td>
-            </tr>
-            <tr class="material-selection-row">
-                <td class="material-card">
-                    <div class="material-image">
-                        <img src="/images/material/上級切削液.png" alt="Material Image">
-                    </div>
-                    <span>上級切削液</span>
-                    <input type="hidden" value="37" id="reqMats12.materialId" name="reqMats[12].materialId">
-                    <input type="hidden" value="上級切削液" id="reqMats12.name" name="reqMats[12].name">
-                    <select id="reqMats12.quantity" name="reqMats[12].quantity">
-                        <option value="0" selected="selected">0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
-                        <option value="13">13</option>
-                        <option value="14">14</option>
-                        <option value="15">15</option>
-                        <option value="16">16</option>
-                        <option value="17">17</option>
-                        <option value="18">18</option>
-                        <option value="19">19</option>
-                        <option value="20">20</option>
-                    </select>
-                </td>
-            </tr>
-            <tr class="material-selection-row">
-                <td class="material-card">
-                    <div class="material-image">
-                        <img src="/images/material/精練溶剤.png" alt="Material Image">
-                    </div>
-                    <span>精練溶剤</span>
-                    <input type="hidden" value="36" id="reqMats13.materialId" name="reqMats[13].materialId">
-                    <input type="hidden" value="精練溶剤" id="reqMats13.name" name="reqMats[13].name">
-                    <select id="reqMats13.quantity" name="reqMats[13].quantity">
-                        <option value="0" selected="selected">0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
-                        <option value="13">13</option>
-                        <option value="14">14</option>
-                        <option value="15">15</option>
-                        <option value="16">16</option>
-                        <option value="17">17</option>
-                        <option value="18">18</option>
-                        <option value="19">19</option>
-                        <option value="20">20</option>
-                    </select>
-                </td>
-            </tr>
-            <tr class="material-selection-row">
-                <td class="material-card">
-                    <div class="material-image">
-                        <img src="/images/material/結晶回路.png" alt="Material Image">
-                    </div>
-                    <span>結晶回路</span>
-                    <input type="hidden" value="35" id="reqMats14.materialId" name="reqMats[14].materialId">
-                    <input type="hidden" value="結晶回路" id="reqMats14.name" name="reqMats[14].name">
-                    <select id="reqMats14.quantity" name="reqMats[14].quantity">
-                        <option value="0" selected="selected">0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
-                        <option value="13">13</option>
-                        <option value="14">14</option>
-                        <option value="15">15</option>
-                        <option value="16">16</option>
-                        <option value="17">17</option>
-                        <option value="18">18</option>
-                        <option value="19">19</option>
-                        <option value="20">20</option>
-                    </select>
-                </td>
-            </tr>
-            <tr class="material-selection-row">
-                <td class="material-card">
-                    <div class="material-image">
-                        <img src="/images/material/上級熾合金.png" alt="Material Image">
-                    </div>
-                    <span>上級熾合金</span>
-                    <input type="hidden" value="34" id="reqMats15.materialId" name="reqMats[15].materialId">
-                    <input type="hidden" value="上級熾合金" id="reqMats15.name" name="reqMats[15].name">
-                    <select id="reqMats15.quantity" name="reqMats[15].quantity">
-                        <option value="0" selected="selected">0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
-                        <option value="13">13</option>
-                        <option value="14">14</option>
-                        <option value="15">15</option>
-                        <option value="16">16</option>
-                        <option value="17">17</option>
-                        <option value="18">18</option>
-                        <option value="19">19</option>
-                        <option value="20">20</option>
-                    </select>
-                </td>
-            </tr>
-            <tr class="material-selection-row">
-                <td class="material-card">
-                    <div class="material-image">
-                        <img src="/images/material/融合ゲル.png" alt="Material Image">
-                    </div>
-                    <span>融合ゲル</span>
-                    <input type="hidden" value="33" id="reqMats16.materialId" name="reqMats[16].materialId">
-                    <input type="hidden" value="融合ゲル" id="reqMats16.name" name="reqMats[16].name">
-                    <select id="reqMats16.quantity" name="reqMats[16].quantity">
-                        <option value="0" selected="selected">0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
-                        <option value="13">13</option>
-                        <option value="14">14</option>
-                        <option value="15">15</option>
-                        <option value="16">16</option>
-                        <option value="17">17</option>
-                        <option value="18">18</option>
-                        <option value="19">19</option>
-                        <option value="20">20</option>
-                    </select>
-                </td>
-            </tr>
-            <tr class="material-selection-row">
-                <td class="material-card">
-                    <div class="material-image">
-                        <img src="/images/material/RMA70-24.png" alt="Material Image">
-                    </div>
-                    <span>RMA70-24</span>
-                    <input type="hidden" value="32" id="reqMats17.materialId" name="reqMats[17].materialId">
-                    <input type="hidden" value="RMA70-24" id="reqMats17.name" name="reqMats[17].name">
-                    <select id="reqMats17.quantity" name="reqMats[17].quantity">
-                        <option value="0" selected="selected">0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
-                        <option value="13">13</option>
-                        <option value="14">14</option>
-                        <option value="15">15</option>
-                        <option value="16">16</option>
-                        <option value="17">17</option>
-                        <option value="18">18</option>
-                        <option value="19">19</option>
-                        <option value="20">20</option>
-                    </select>
-                </td>
-            </tr>
-            <tr class="material-selection-row">
-                <td class="material-card">
-                    <div class="material-image">
-                        <img src="/images/material/上級砥石.png" alt="Material Image">
-                    </div>
-                    <span>上級砥石</span>
-                    <input type="hidden" value="31" id="reqMats18.materialId" name="reqMats[18].materialId">
-                    <input type="hidden" value="上級砥石" id="reqMats18.name" name="reqMats[18].name">
-                    <select id="reqMats18.quantity" name="reqMats[18].quantity">
-                        <option value="0" selected="selected">0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
-                        <option value="13">13</option>
-                        <option value="14">14</option>
-                        <option value="15">15</option>
-                        <option value="16">16</option>
-                        <option value="17">17</option>
-                        <option value="18">18</option>
-                        <option value="19">19</option>
-                        <option value="20">20</option>
-                    </select>
-                </td>
-            </tr>
-            <tr class="material-selection-row">
-                <td class="material-card">
-                    <div class="material-image">
-                        <img src="/images/material/上級マンガン.png" alt="Material Image">
-                    </div>
-                    <span>上級マンガン</span>
-                    <input type="hidden" value="30" id="reqMats19.materialId" name="reqMats[19].materialId">
-                    <input type="hidden" value="上級マンガン" id="reqMats19.name" name="reqMats[19].name">
-                    <select id="reqMats19.quantity" name="reqMats[19].quantity">
-                        <option value="0" selected="selected">0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
-                        <option value="13">13</option>
-                        <option value="14">14</option>
-                        <option value="15">15</option>
-                        <option value="16">16</option>
-                        <option value="17">17</option>
-                        <option value="18">18</option>
-                        <option value="19">19</option>
-                        <option value="20">20</option>
-                    </select>
-                </td>
-            </tr>
-            <tr class="material-selection-row">
-                <td class="material-card">
-                    <div class="material-image">
-                        <img src="/images/material/上級合成コール.png" alt="Material Image">
-                    </div>
-                    <span>上級合成コール</span>
-                    <input type="hidden" value="29" id="reqMats20.materialId" name="reqMats[20].materialId">
-                    <input type="hidden" value="上級合成コール" id="reqMats20.name" name="reqMats[20].name">
-                    <select id="reqMats20.quantity" name="reqMats[20].quantity">
-                        <option value="0" selected="selected">0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
-                        <option value="13">13</option>
-                        <option value="14">14</option>
-                        <option value="15">15</option>
-                        <option value="16">16</option>
-                        <option value="17">17</option>
-                        <option value="18">18</option>
-                        <option value="19">19</option>
-                        <option value="20">20</option>
-                    </select>
-                </td>
-            </tr>
-            <tr class="material-selection-row">
-                <td class="material-card">
-                    <div class="material-image">
-                        <img src="/images/material/中級アケトン.png" alt="Material Image">
-                    </div>
-                    <span>中級アケトン</span>
-                    <input type="hidden" value="28" id="reqMats21.materialId" name="reqMats[21].materialId">
-                    <input type="hidden" value="中級アケトン" id="reqMats21.name" name="reqMats[21].name">
-                    <select id="reqMats21.quantity" name="reqMats[21].quantity">
-                        <option value="0" selected="selected">0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
-                        <option value="13">13</option>
-                        <option value="14">14</option>
-                        <option value="15">15</option>
-                        <option value="16">16</option>
-                        <option value="17">17</option>
-                        <option value="18">18</option>
-                        <option value="19">19</option>
-                        <option value="20">20</option>
-                    </select>
-                </td>
-            </tr>
-            <tr class="material-selection-row">
-                <td class="material-card">
-                    <div class="material-image">
-                        <img src="/images/material/中級異鉄.png" alt="Material Image">
-                    </div>
-                    <span>中級異鉄</span>
-                    <input type="hidden" value="27" id="reqMats22.materialId" name="reqMats[22].materialId">
-                    <input type="hidden" value="中級異鉄" id="reqMats22.name" name="reqMats[22].name">
-                    <select id="reqMats22.quantity" name="reqMats[22].quantity">
-                        <option value="0" selected="selected">0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
-                        <option value="13">13</option>
-                        <option value="14">14</option>
-                        <option value="15">15</option>
-                        <option value="16">16</option>
-                        <option value="17">17</option>
-                        <option value="18">18</option>
-                        <option value="19">19</option>
-                        <option value="20">20</option>
-                    </select>
-                </td>
-            </tr>
-            <tr class="material-selection-row">
-                <td class="material-card">
-                    <div class="material-image">
-                        <img src="/images/material/中級糖原.png" alt="Material Image">
-                    </div>
-                    <span>中級糖原</span>
-                    <input type="hidden" value="26" id="reqMats23.materialId" name="reqMats[23].materialId">
-                    <input type="hidden" value="中級糖原" id="reqMats23.name" name="reqMats[23].name">
-                    <select id="reqMats23.quantity" name="reqMats[23].quantity">
-                        <option value="0" selected="selected">0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
-                        <option value="13">13</option>
-                        <option value="14">14</option>
-                        <option value="15">15</option>
-                        <option value="16">16</option>
-                        <option value="17">17</option>
-                        <option value="18">18</option>
-                        <option value="19">19</option>
-                        <option value="20">20</option>
-                    </select>
-                </td>
-            </tr>
-            <tr class="material-selection-row">
-                <td class="material-card">
-                    <div class="material-image">
-                        <img src="/images/material/中級エステル.png" alt="Material Image">
-                    </div>
-                    <span>中級エステル</span>
-                    <input type="hidden" value="25" id="reqMats24.materialId" name="reqMats[24].materialId">
-                    <input type="hidden" value="中級エステル" id="reqMats24.name" name="reqMats[24].name">
-                    <select id="reqMats24.quantity" name="reqMats[24].quantity">
-                        <option value="0" selected="selected">0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
-                        <option value="13">13</option>
-                        <option value="14">14</option>
-                        <option value="15">15</option>
-                        <option value="16">16</option>
-                        <option value="17">17</option>
-                        <option value="18">18</option>
-                        <option value="19">19</option>
-                        <option value="20">20</option>
-                    </select>
-                </td>
-            </tr>
-            <tr class="material-selection-row">
-                <td class="material-card">
-                    <div class="material-image">
-                        <img src="/images/material/中級装置.png" alt="Material Image">
-                    </div>
-                    <span>中級装置</span>
-                    <input type="hidden" value="24" id="reqMats25.materialId" name="reqMats[25].materialId">
-                    <input type="hidden" value="中級装置" id="reqMats25.name" name="reqMats[25].name">
-                    <select id="reqMats25.quantity" name="reqMats[25].quantity">
-                        <option value="0" selected="selected">0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
-                        <option value="13">13</option>
-                        <option value="14">14</option>
-                        <option value="15">15</option>
-                        <option value="16">16</option>
-                        <option value="17">17</option>
-                        <option value="18">18</option>
-                        <option value="19">19</option>
-                        <option value="20">20</option>
-                    </select>
-                </td>
-            </tr>
-            <tr class="material-selection-row">
-                <td class="material-card">
-                    <div class="material-image">
-                        <img src="/images/material/中級源岩.png" alt="Material Image">
-                    </div>
-                    <span>中級源岩</span>
-                    <input type="hidden" value="23" id="reqMats26.materialId" name="reqMats[26].materialId">
-                    <input type="hidden" value="中級源岩" id="reqMats26.name" name="reqMats[26].name">
-                    <select id="reqMats26.quantity" name="reqMats[26].quantity">
-                        <option value="0" selected="selected">0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
-                        <option value="13">13</option>
-                        <option value="14">14</option>
-                        <option value="15">15</option>
-                        <option value="16">16</option>
-                        <option value="17">17</option>
-                        <option value="18">18</option>
-                        <option value="19">19</option>
-                        <option value="20">20</option>
-                    </select>
-                </td>
-            </tr>
-            <tr class="material-selection-row">
-                <td class="material-card">
-                    <div class="material-image">
-                        <img src="/images/material/転化塩.png" alt="Material Image">
-                    </div>
-                    <span>転化塩</span>
-                    <input type="hidden" value="22" id="reqMats27.materialId" name="reqMats[27].materialId">
-                    <input type="hidden" value="転化塩" id="reqMats27.name" name="reqMats[27].name">
-                    <select id="reqMats27.quantity" name="reqMats[27].quantity">
-                        <option value="0" selected="selected">0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
-                        <option value="13">13</option>
-                        <option value="14">14</option>
-                        <option value="15">15</option>
-                        <option value="16">16</option>
-                        <option value="17">17</option>
-                        <option value="18">18</option>
-                        <option value="19">19</option>
-                        <option value="20">20</option>
-                    </select>
-                </td>
-            </tr>
-            <tr class="material-selection-row">
-                <td class="material-card">
-                    <div class="material-image">
-                        <img src="/images/material/切削液.png" alt="Material Image">
-                    </div>
-                    <span>切削液</span>
-                    <input type="hidden" value="21" id="reqMats28.materialId" name="reqMats[28].materialId">
-                    <input type="hidden" value="切削液" id="reqMats28.name" name="reqMats[28].name">
-                    <select id="reqMats28.quantity" name="reqMats[28].quantity">
-                        <option value="0" selected="selected">0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
-                        <option value="13">13</option>
-                        <option value="14">14</option>
-                        <option value="15">15</option>
-                        <option value="16">16</option>
-                        <option value="17">17</option>
-                        <option value="18">18</option>
-                        <option value="19">19</option>
-                        <option value="20">20</option>
-                    </select>
-                </td>
-            </tr>
-            <tr class="material-selection-row">
-                <td class="material-card">
-                    <div class="material-image">
-                        <img src="/images/material/半自然溶剤.png" alt="Material Image">
-                    </div>
-                    <span>半自然溶剤</span>
-                    <input type="hidden" value="20" id="reqMats29.materialId" name="reqMats[29].materialId">
-                    <input type="hidden" value="半自然溶剤" id="reqMats29.name" name="reqMats[29].name">
-                    <select id="reqMats29.quantity" name="reqMats[29].quantity">
-                        <option value="0" selected="selected">0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
-                        <option value="13">13</option>
-                        <option value="14">14</option>
-                        <option value="15">15</option>
-                        <option value="16">16</option>
-                        <option value="17">17</option>
-                        <option value="18">18</option>
-                        <option value="19">19</option>
-                        <option value="20">20</option>
-                    </select>
-                </td>
-            </tr>
-            <tr class="material-selection-row">
-                <td class="material-card">
-                    <div class="material-image">
-                        <img src="/images/material/素子結晶.png" alt="Material Image">
-                    </div>
-                    <span>素子結晶</span>
-                    <input type="hidden" value="19" id="reqMats30.materialId" name="reqMats[30].materialId">
-                    <input type="hidden" value="素子結晶" id="reqMats30.name" name="reqMats[30].name">
-                    <select id="reqMats30.quantity" name="reqMats[30].quantity">
-                        <option value="0" selected="selected">0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
-                        <option value="13">13</option>
-                        <option value="14">14</option>
-                        <option value="15">15</option>
-                        <option value="16">16</option>
-                        <option value="17">17</option>
-                        <option value="18">18</option>
-                        <option value="19">19</option>
-                        <option value="20">20</option>
-                    </select>
-                </td>
-            </tr>
-            <tr class="material-selection-row">
-                <td class="material-card">
-                    <div class="material-image">
-                        <img src="/images/material/熾合金.png" alt="Material Image">
-                    </div>
-                    <span>熾合金</span>
-                    <input type="hidden" value="18" id="reqMats31.materialId" name="reqMats[31].materialId">
-                    <input type="hidden" value="熾合金" id="reqMats31.name" name="reqMats[31].name">
-                    <select id="reqMats31.quantity" name="reqMats[31].quantity">
-                        <option value="0" selected="selected">0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
-                        <option value="13">13</option>
-                        <option value="14">14</option>
-                        <option value="15">15</option>
-                        <option value="16">16</option>
-                        <option value="17">17</option>
-                        <option value="18">18</option>
-                        <option value="19">19</option>
-                        <option value="20">20</option>
-                    </select>
-                </td>
-            </tr>
-            <tr class="material-selection-row">
-                <td class="material-card">
-                    <div class="material-image">
-                        <img src="/images/material/人工ゲル.png" alt="Material Image">
-                    </div>
-                    <span>人工ゲル</span>
-                    <input type="hidden" value="17" id="reqMats32.materialId" name="reqMats[32].materialId">
-                    <input type="hidden" value="人工ゲル" id="reqMats32.name" name="reqMats[32].name">
-                    <select id="reqMats32.quantity" name="reqMats[32].quantity">
-                        <option value="0" selected="selected">0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
-                        <option value="13">13</option>
-                        <option value="14">14</option>
-                        <option value="15">15</option>
-                        <option value="16">16</option>
-                        <option value="17">17</option>
-                        <option value="18">18</option>
-                        <option value="19">19</option>
-                        <option value="20">20</option>
-                    </select>
-                </td>
-            </tr>
-            <tr class="material-selection-row">
-                <td class="material-card">
-                    <div class="material-image">
-                        <img src="/images/material/RMA70-12.png" alt="Material Image">
-                    </div>
-                    <span>RMA70-12</span>
-                    <input type="hidden" value="16" id="reqMats33.materialId" name="reqMats[33].materialId">
-                    <input type="hidden" value="RMA70-12" id="reqMats33.name" name="reqMats[33].name">
-                    <select id="reqMats33.quantity" name="reqMats[33].quantity">
-                        <option value="0" selected="selected">0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
-                        <option value="13">13</option>
-                        <option value="14">14</option>
-                        <option value="15">15</option>
-                        <option value="16">16</option>
-                        <option value="17">17</option>
-                        <option value="18">18</option>
-                        <option value="19">19</option>
-                        <option value="20">20</option>
-                    </select>
-                </td>
-            </tr>
-            <tr class="material-selection-row">
-                <td class="material-card">
-                    <div class="material-image">
-                        <img src="/images/material/砥石.png" alt="Material Image">
-                    </div>
-                    <span>砥石</span>
-                    <input type="hidden" value="15" id="reqMats34.materialId" name="reqMats[34].materialId">
-                    <input type="hidden" value="砥石" id="reqMats34.name" name="reqMats[34].name">
-                    <select id="reqMats34.quantity" name="reqMats[34].quantity">
-                        <option value="0" selected="selected">0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
-                        <option value="13">13</option>
-                        <option value="14">14</option>
-                        <option value="15">15</option>
-                        <option value="16">16</option>
-                        <option value="17">17</option>
-                        <option value="18">18</option>
-                        <option value="19">19</option>
-                        <option value="20">20</option>
-                    </select>
-                </td>
-            </tr>
-            <tr class="material-selection-row">
-                <td class="material-card">
-                    <div class="material-image">
-                        <img src="/images/material/マンガン.png" alt="Material Image">
-                    </div>
-                    <span>マンガン</span>
-                    <input type="hidden" value="14" id="reqMats35.materialId" name="reqMats[35].materialId">
-                    <input type="hidden" value="マンガン" id="reqMats35.name" name="reqMats[35].name">
-                    <select id="reqMats35.quantity" name="reqMats[35].quantity">
-                        <option value="0" selected="selected">0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
-                        <option value="13">13</option>
-                        <option value="14">14</option>
-                        <option value="15">15</option>
-                        <option value="16">16</option>
-                        <option value="17">17</option>
-                        <option value="18">18</option>
-                        <option value="19">19</option>
-                        <option value="20">20</option>
-                    </select>
-                </td>
-            </tr>
-            <tr class="material-selection-row">
-                <td class="material-card">
-                    <div class="material-image">
-                        <img src="/images/material/合成コール.png" alt="Material Image">
-                    </div>
-                    <span>合成コール</span>
-                    <input type="hidden" value="13" id="reqMats36.materialId" name="reqMats[36].materialId">
-                    <input type="hidden" value="合成コール" id="reqMats36.name" name="reqMats[36].name">
-                    <select id="reqMats36.quantity" name="reqMats[36].quantity">
-                        <option value="0" selected="selected">0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
-                        <option value="13">13</option>
-                        <option value="14">14</option>
-                        <option value="15">15</option>
-                        <option value="16">16</option>
-                        <option value="17">17</option>
-                        <option value="18">18</option>
-                        <option value="19">19</option>
-                        <option value="20">20</option>
-                    </select>
-                </td>
-            </tr>
-            <tr class="material-selection-row">
-                <td class="material-card">
-                    <div class="material-image">
-                        <img src="/images/material/初級アケトン.png" alt="Material Image">
-                    </div>
-                    <span>初級アケトン</span>
-                    <input type="hidden" value="12" id="reqMats37.materialId" name="reqMats[37].materialId">
-                    <input type="hidden" value="初級アケトン" id="reqMats37.name" name="reqMats[37].name">
-                    <select id="reqMats37.quantity" name="reqMats[37].quantity">
-                        <option value="0" selected="selected">0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
-                        <option value="13">13</option>
-                        <option value="14">14</option>
-                        <option value="15">15</option>
-                        <option value="16">16</option>
-                        <option value="17">17</option>
-                        <option value="18">18</option>
-                        <option value="19">19</option>
-                        <option value="20">20</option>
-                    </select>
-                </td>
-            </tr>
-            <tr class="material-selection-row">
-                <td class="material-card">
-                    <div class="material-image">
-                        <img src="/images/material/初級異鉄.png" alt="Material Image">
-                    </div>
-                    <span>初級異鉄</span>
-                    <input type="hidden" value="11" id="reqMats38.materialId" name="reqMats[38].materialId">
-                    <input type="hidden" value="初級異鉄" id="reqMats38.name" name="reqMats[38].name">
-                    <select id="reqMats38.quantity" name="reqMats[38].quantity">
-                        <option value="0" selected="selected">0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
-                        <option value="13">13</option>
-                        <option value="14">14</option>
-                        <option value="15">15</option>
-                        <option value="16">16</option>
-                        <option value="17">17</option>
-                        <option value="18">18</option>
-                        <option value="19">19</option>
-                        <option value="20">20</option>
-                    </select>
-                </td>
-            </tr>
-            <tr class="material-selection-row">
-                <td class="material-card">
-                    <div class="material-image">
-                        <img src="/images/material/初級糖原.png" alt="Material Image">
-                    </div>
-                    <span>初級糖原</span>
-                    <input type="hidden" value="10" id="reqMats39.materialId" name="reqMats[39].materialId">
-                    <input type="hidden" value="初級糖原" id="reqMats39.name" name="reqMats[39].name">
-                    <select id="reqMats39.quantity" name="reqMats[39].quantity">
-                        <option value="0" selected="selected">0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
-                        <option value="13">13</option>
-                        <option value="14">14</option>
-                        <option value="15">15</option>
-                        <option value="16">16</option>
-                        <option value="17">17</option>
-                        <option value="18">18</option>
-                        <option value="19">19</option>
-                        <option value="20">20</option>
-                    </select>
-                </td>
-            </tr>
-            <tr class="material-selection-row">
-                <td class="material-card">
-                    <div class="material-image">
-                        <img src="/images/material/初級エステル.png" alt="Material Image">
-                    </div>
-                    <span>初級エステル</span>
-                    <input type="hidden" value="9" id="reqMats40.materialId" name="reqMats[40].materialId">
-                    <input type="hidden" value="初級エステル" id="reqMats40.name" name="reqMats[40].name">
-                    <select id="reqMats40.quantity" name="reqMats[40].quantity">
-                        <option value="0" selected="selected">0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
-                        <option value="13">13</option>
-                        <option value="14">14</option>
-                        <option value="15">15</option>
-                        <option value="16">16</option>
-                        <option value="17">17</option>
-                        <option value="18">18</option>
-                        <option value="19">19</option>
-                        <option value="20">20</option>
-                    </select>
-                </td>
-            </tr>
-            <tr class="material-selection-row">
-                <td class="material-card">
-                    <div class="material-image">
-                        <img src="/images/material/初級装置.png" alt="Material Image">
-                    </div>
-                    <span>初級装置</span>
-                    <input type="hidden" value="8" id="reqMats41.materialId" name="reqMats[41].materialId">
-                    <input type="hidden" value="初級装置" id="reqMats41.name" name="reqMats[41].name">
-                    <select id="reqMats41.quantity" name="reqMats[41].quantity">
-                        <option value="0" selected="selected">0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
-                        <option value="13">13</option>
-                        <option value="14">14</option>
-                        <option value="15">15</option>
-                        <option value="16">16</option>
-                        <option value="17">17</option>
-                        <option value="18">18</option>
-                        <option value="19">19</option>
-                        <option value="20">20</option>
-                    </select>
-                </td>
-            </tr>
-            <tr class="material-selection-row">
-                <td class="material-card">
-                    <div class="material-image">
-                        <img src="/images/material/初級源岩.png" alt="Material Image">
-                    </div>
-                    <span>初級源岩</span>
-                    <input type="hidden" value="7" id="reqMats42.materialId" name="reqMats[42].materialId">
-                    <input type="hidden" value="初級源岩" id="reqMats42.name" name="reqMats[42].name">
-                    <select id="reqMats42.quantity" name="reqMats[42].quantity">
-                        <option value="0" selected="selected">0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
-                        <option value="13">13</option>
-                        <option value="14">14</option>
-                        <option value="15">15</option>
-                        <option value="16">16</option>
-                        <option value="17">17</option>
-                        <option value="18">18</option>
-                        <option value="19">19</option>
-                        <option value="20">20</option>
-                    </select>
-                </td>
-            </tr>
-            <tr class="material-selection-row">
-                <td class="material-card">
-                    <div class="material-image">
-                        <img src="/images/material/アケトン試剤.png" alt="Material Image">
-                    </div>
-                    <span>アケトン試剤</span>
-                    <input type="hidden" value="6" id="reqMats43.materialId" name="reqMats[43].materialId">
-                    <input type="hidden" value="アケトン試剤" id="reqMats43.name" name="reqMats[43].name">
-                    <select id="reqMats43.quantity" name="reqMats[43].quantity">
-                        <option value="0" selected="selected">0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
-                        <option value="13">13</option>
-                        <option value="14">14</option>
-                        <option value="15">15</option>
-                        <option value="16">16</option>
-                        <option value="17">17</option>
-                        <option value="18">18</option>
-                        <option value="19">19</option>
-                        <option value="20">20</option>
-                    </select>
-                </td>
-            </tr>
-            <tr class="material-selection-row">
-                <td class="material-card">
-                    <div class="material-image">
-                        <img src="/images/material/異鉄の欠片.png" alt="Material Image">
-                    </div>
-                    <span>異鉄の欠片</span>
-                    <input type="hidden" value="5" id="reqMats44.materialId" name="reqMats[44].materialId">
-                    <input type="hidden" value="異鉄の欠片" id="reqMats44.name" name="reqMats[44].name">
-                    <select id="reqMats44.quantity" name="reqMats[44].quantity">
-                        <option value="0" selected="selected">0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
-                        <option value="13">13</option>
-                        <option value="14">14</option>
-                        <option value="15">15</option>
-                        <option value="16">16</option>
-                        <option value="17">17</option>
-                        <option value="18">18</option>
-                        <option value="19">19</option>
-                        <option value="20">20</option>
-                    </select>
-                </td>
-            </tr>
-            <tr class="material-selection-row">
-                <td class="material-card">
-                    <div class="material-image">
-                        <img src="/images/material/ブドウ糖.png" alt="Material Image">
-                    </div>
-                    <span>ブドウ糖</span>
-                    <input type="hidden" value="4" id="reqMats45.materialId" name="reqMats[45].materialId">
-                    <input type="hidden" value="ブドウ糖" id="reqMats45.name" name="reqMats[45].name">
-                    <select id="reqMats45.quantity" name="reqMats[45].quantity">
-                        <option value="0" selected="selected">0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
-                        <option value="13">13</option>
-                        <option value="14">14</option>
-                        <option value="15">15</option>
-                        <option value="16">16</option>
-                        <option value="17">17</option>
-                        <option value="18">18</option>
-                        <option value="19">19</option>
-                        <option value="20">20</option>
-                    </select>
-                </td>
-            </tr>
-            <tr class="material-selection-row">
-                <td class="material-card">
-                    <div class="material-image">
-                        <img src="/images/material/エステル原料.png" alt="Material Image">
-                    </div>
-                    <span>エステル原料</span>
-                    <input type="hidden" value="3" id="reqMats46.materialId" name="reqMats[46].materialId">
-                    <input type="hidden" value="エステル原料" id="reqMats46.name" name="reqMats[46].name">
-                    <select id="reqMats46.quantity" name="reqMats[46].quantity">
-                        <option value="0" selected="selected">0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
-                        <option value="13">13</option>
-                        <option value="14">14</option>
-                        <option value="15">15</option>
-                        <option value="16">16</option>
-                        <option value="17">17</option>
-                        <option value="18">18</option>
-                        <option value="19">19</option>
-                        <option value="20">20</option>
-                    </select>
-                </td>
-            </tr>
-            <tr class="material-selection-row">
-                <td class="material-card">
-                    <div class="material-image">
-                        <img src="/images/material/破損装置.png" alt="Material Image">
-                    </div>
-                    <span>破損装置</span>
-                    <input type="hidden" value="2" id="reqMats47.materialId" name="reqMats[47].materialId">
-                    <input type="hidden" value="破損装置" id="reqMats47.name" name="reqMats[47].name">
-                    <select id="reqMats47.quantity" name="reqMats[47].quantity">
-                        <option value="0" selected="selected">0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
-                        <option value="13">13</option>
-                        <option value="14">14</option>
-                        <option value="15">15</option>
-                        <option value="16">16</option>
-                        <option value="17">17</option>
-                        <option value="18">18</option>
-                        <option value="19">19</option>
-                        <option value="20">20</option>
-                    </select>
-                </td>
-            </tr>
-            <tr class="material-selection-row">
-                <td class="material-card">
-                    <div class="material-image">
-                        <img src="/images/material/源岩鉱.png" alt="Material Image">
-                    </div>
-                    <span>源岩鉱</span>
-                    <input type="hidden" value="1" id="reqMats48.materialId" name="reqMats[48].materialId">
-                    <input type="hidden" value="源岩鉱" id="reqMats48.name" name="reqMats[48].name">
-                    <select id="reqMats48.quantity" name="reqMats[48].quantity">
-                        <option value="0" selected="selected">0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
-                        <option value="13">13</option>
-                        <option value="14">14</option>
-                        <option value="15">15</option>
-                        <option value="16">16</option>
-                        <option value="17">17</option>
-                        <option value="18">18</option>
-                        <option value="19">19</option>
-                        <option value="20">20</option>
-                    </select>
-                </td>
-            </tr>
-        </tbody></table>
+                        <span>× <span>1</span></span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        を作るために必要な素材は...
     
-        <div style="text-align: center;">
-            <input type="submit" value="必要数を計算する">
-        </div>
-    </form>
-    
-    
+        <table class="result-table">
+            <tbody>
+                <tr>
+                    <td class="material-card">
+                        <div class="material-image-and-name">
+                            <img src="/images/material/合成コール.png" alt="Material Image">
+                            <span>合成コール</span>
+                        </div>
+                        <div class="material-quantity">
+                            × <span>5</span>
+                        </div>
+                    </td>
+                    <td class="material-card">
+                        <div class="material-image-and-name">
+                            <img src="/images/material/マンガン.png" alt="Material Image">
+                            <span>マンガン</span>
+                        </div>
+                        <div class="material-quantity">
+                            × <span>3</span>
+                        </div>
+                    </td>
+                    <td class="material-card">
+                        <div class="material-image-and-name">
+                            <img src="/images/material/砥石.png" alt="Material Image">
+                            <span>砥石</span>
+                        </div>
+                        <div class="material-quantity">
+                            × <span>4</span>
+                        </div>
+                    </td>
+                    <td class="material-card">
+                        <div class="material-image-and-name">
+                            <img src="/images/material/RMA70-12.png" alt="Material Image">
+                            <span>RMA70-12</span>
+                        </div>
+                        <div class="material-quantity">
+                            × <span>6</span>
+                        </div>
+                    </td>
+                    <td class="material-card">
+                        <div class="material-image-and-name">
+                            <img src="/images/material/人工ゲル.png" alt="Material Image">
+                            <span>人工ゲル</span>
+                        </div>
+                        <div class="material-quantity">
+                            × <span>5</span>
+                        </div>
+                    </td>
+                    <td class="material-card">
+                        <div class="material-image-and-name">
+                            <img src="/images/material/熾合金.png" alt="Material Image">
+                            <span>熾合金</span>
+                        </div>
+                        <div class="material-quantity">
+                            × <span>4</span>
+                        </div>
+                    </td>
+                    <td class="material-card">
+                        <div class="material-image-and-name">
+                            <img src="/images/material/素子結晶.png" alt="Material Image">
+                            <span>素子結晶</span>
+                        </div>
+                        <div class="material-quantity">
+                            × <span>3</span>
+                        </div>
+                    </td>
+                    <td class="material-card">
+                        <div class="material-image-and-name">
+                            <img src="/images/material/半自然溶剤.png" alt="Material Image">
+                            <span>半自然溶剤</span>
+                        </div>
+                        <div class="material-quantity">
+                            × <span>3</span>
+                        </div>
+                    </td>
+                    <td class="material-card">
+                        <div class="material-image-and-name">
+                            <img src="/images/material/切削液.png" alt="Material Image">
+                            <span>切削液</span>
+                        </div>
+                        <div class="material-quantity">
+                            × <span>3</span>
+                        </div>
+                    </td>
+                    <td class="material-card">
+                        <div class="material-image-and-name">
+                            <img src="/images/material/転化塩.png" alt="Material Image">
+                            <span>転化塩</span>
+                        </div>
+                        <div class="material-quantity">
+                            × <span>1</span>
+                        </div>
+                    </td>
+                    <td class="material-card">
+                        <div class="material-image-and-name">
+                            <img src="/images/material/中級源岩.png" alt="Material Image">
+                            <span>中級源岩</span>
+                        </div>
+                        <div class="material-quantity">
+                            × <span>10</span>
+                        </div>
+                    </td>
+                    <td class="material-card">
+                        <div class="material-image-and-name">
+                            <img src="/images/material/中級装置.png" alt="Material Image">
+                            <span>中級装置</span>
+                        </div>
+                        <div class="material-quantity">
+                            × <span>5</span>
+                        </div>
+                    </td>
+                    <td class="material-card">
+                        <div class="material-image-and-name">
+                            <img src="/images/material/中級エステル.png" alt="Material Image">
+                            <span>中級エステル</span>
+                        </div>
+                        <div class="material-quantity">
+                            × <span>2</span>
+                        </div>
+                    </td>
+                    <td class="material-card">
+                        <div class="material-image-and-name">
+                            <img src="/images/material/中級糖原.png" alt="Material Image">
+                            <span>中級糖原</span>
+                        </div>
+                        <div class="material-quantity">
+                            × <span>6</span>
+                        </div>
+                    </td>
+                    <td class="material-card">
+                        <div class="material-image-and-name">
+                            <img src="/images/material/中級異鉄.png" alt="Material Image">
+                            <span>中級異鉄</span>
+                        </div>
+                        <div class="material-quantity">
+                            × <span>5</span>
+                        </div>
+                    </td>
+                    <td class="material-card">
+                        <div class="material-image-and-name">
+                            <img src="/images/material/中級アケトン.png" alt="Material Image">
+                            <span>中級アケトン</span>
+                        </div>
+                        <div class="material-quantity">
+                            × <span>3</span>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+            
+        </table>
+    </div>
     
     
     </body>
