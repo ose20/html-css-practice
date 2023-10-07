@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.tymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>素材詳細</title>
+
+  <link rel="stylesheet" th:href="@{/css/common.css}">
+  <link rel="stylesheet" th:href="@{/css/material/detail.css}">
+</head>
+
+<body>
+
+  <div class="breadcrumb">
+    <ol>
+      <li><a href="/materials">素材一覧</a></li>
+      <li>融合剤</li>
+    </ol>
+  </div>
+  
+  <div class="content-wrapper">
+    <div class="column">
+      <h2>基本情報</h2>
+      <table>
+        <tbody>
+        <tr>
+          <th colspan="3">融合剤</th>
+        </tr>
+        <tr>
+          <td><img src="/images/material/融合剤.png" alt=""></td>
+          <th>タイプ</th>
+          <td>高級</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  
+    <div class="column">
+      <h2>生産レシピ</h2>
+      <table class="recipe">
+        <thead>
+        <tr>
+          <th>必要素材</th>
+          <th>個数</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td><img src="/images/material/上級源岩.png" alt="Material Image"><span>上級源岩</span></td>
+          <td>1</td>
+          <!-- Hidden Element -->
+          <td>
+            <input type="hidden" value="39" name="materialId">
+          </td>
+        </tr>
+        <tr>
+          <td><img src="/images/material/上級異鉄.png" alt="Material Image"><span>上級異鉄</span></td>
+          <td>1</td>
+          <!-- Hidden Element -->
+          <td>
+            <input type="hidden" value="43" name="materialId">
+          </td>
+        </tr>
+        <tr>
+          <td><img src="/images/material/上級アケトン.png" alt="Material Image"><span>上級アケトン</span></td>
+          <td>1</td>
+          <!-- Hidden Element -->
+          <td>
+            <input type="hidden" value="44" name="materialId">
+          </td>
+        </tr>
+        <tr>
+          <td><img src="/images/valuables/龍門幣.png" alt="Money Image">龍門幣</td>
+          <td><span>400</span></td>
+        </tr>
+        <tr>
+          <td>消費体力</td>
+          <td>8</td>
+        </tr>
+        </tbody>
+      </table>
+  
+      <!-- requiredMaterialsがからの場合 -->
+      
+  
+    </div>
+  </div>
+  
+  
+  </body>
+
+</html>
